@@ -213,7 +213,7 @@
             android:textSize="@dimen/medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/a4"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <ImageButton
             android:layout_width="64dp"
@@ -226,8 +226,7 @@
             android:background="#00990055"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="TODO"></ImageButton>
+            app:layout_constraintTop_toTopOf="parent"></ImageButton>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

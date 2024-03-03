@@ -3,40 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/LoginFragment">
-
+    app:startDestination="@id/login">
     <fragment
-        android:id="@+id/LoginFragment"
-        android:name="com.example.lab_2.Login"
-        tools:layout="@layout/login_fragment" >
-        <argument
-            android:name="name"
-            android:defaultValue="name"/>
-        <action
-            android:id="@+id/action_login_to_main"
-            app:destination="@id/MainFragment"
-            app:launchSingleTop="true"/>
-    </fragment>
-    <fragment
-        android:id="@+id/MainFragment"
-        android:name="com.example.lab_2.MainPage"
-        tools:layout="@layout/main_page_fragment" >
-        <argument
-            android:name="num_test"
-            android:defaultValue="num_test"/>
-        <action
-            android:id="@+id/action_main_to_test"
-            app:destination="@id/TestFragment" />
-        <action
-            android:id="@+id/action_MainFragment_to_LoginFragment"
-            app:destination="@id/LoginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/TestFragment"
-        android:name="com.example.lab_2.TestPage"
-        android:label="TestPage" >
-        <action
-            android:id="@+id/action_TestFragment_to_MainFragment"
-            app:destination="@id/MainFragment" />
-    </fragment>
+        android:id="@+id/login"
+        android:name="com.example.testapp.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
