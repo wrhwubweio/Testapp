@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,15 +8,11 @@
     android:orientation="vertical"
     android:id="@+id/main"
     android:background="@color/lite_gray">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_weight="2"
         android:orientation="horizontal">
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="74dp"
@@ -72,9 +66,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -89,5 +80,4 @@
             android:textAlignment="center">
         </ListView>
     </LinearLayout>
-
 </LinearLayout>

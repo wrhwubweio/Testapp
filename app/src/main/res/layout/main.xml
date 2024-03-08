@@ -9,15 +9,13 @@
     android:background="@color/lite_gray"
     android:theme="@style/Theme.AppCompat"
     tools:context=".MainActivity">
-
 <FrameLayout
-    android:id="@+id/fragment_layout"
+    android:id="@+id/nav_host_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
-
-
+    app:layout_constraintTop_toTopOf="parent"
+    app:navGraph = "@navigation/nav_graph" />
 </androidx.constraintlayout.widget.ConstraintLayout>
