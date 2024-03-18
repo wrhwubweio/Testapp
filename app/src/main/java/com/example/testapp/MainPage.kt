@@ -9,31 +9,60 @@ import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.testapp.databinding.FragmentMainPageBinding
 import java.util.Random
 
 class MainPage : Fragment() {
-
-
-    var complete = java.util.ArrayList<Long>()
     private lateinit var binding: FragmentMainPageBinding;
+    private lateinit var viewModel: MainViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMainPageBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        binding.outText.text =  getArguments()?.getString("name")
+
+        binding.listView.onItemClickListener =
+            OnItemClickListener { adapterView, view, i, l ->
+                viewModel.setNumTest(l)
+                viewModel.onButtonTest()
+            }
+
+        binding.quit.setOnClickListener{
+            viewModel.onButtonBack()
+        }
+
+        viewModel.navigateToTestFragment.observe(viewLifecycleOwner, Observer { navigate ->
+            if (navigate){
+                val result = Bundle()
+                viewModel.numTest.value?.let { result.putLong("id_test", it) }
+                findNavController().navigate(R.id.action_mainPage_to_testPage, result)
+                viewModel.onTestNavigated()
+            }
+        })
+
+        viewModel.navigateToLoginFragment.observe(viewLifecycleOwner, Observer { navigate ->
+            if (navigate){
+                findNavController().navigate(R.id.action_mainPage_to_login)
+            }
+        })
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        generateList(view)
+    }
 
-        setFragmentResultListener("requestKey") { requestKey, bundle ->
-            binding.outText.text = bundle.getString("name")
-        }
 
+    private fun generateList(view: View){
         val listView = binding.listView
         val items = ArrayList<Item>()
         for (i in 0 .. 29) {
@@ -49,21 +78,9 @@ class MainPage : Fragment() {
         }
         val adapter = ListViewAdapter(view.context, 0,0, items)
         listView.setAdapter(adapter)
-        val result = Bundle()
-        listView.onItemClickListener =
-            OnItemClickListener { adapterView, view, i, l ->
-                result.putLong("id_test", l)
-                parentFragmentManager.setFragmentResult(
-                    "requestKey", result
-                )
-                findNavController().navigate(R.id.action_mainPage_to_testPage)
-            }
-        binding.quit.setOnClickListener{
-            findNavController().navigate(R.id.action_mainPage_to_login)
-        }
     }
 
-    private fun OutInfo(text: String, outToast: Boolean) {
+    private fun outInfo(text: String, outToast: Boolean) {
         Log.d("MINE", text)
         if (!outToast) return
         val toast = Toast.makeText(
