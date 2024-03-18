@@ -32,4 +32,8 @@
             android:id="@+id/action_testPage_to_mainPage"
             app:destination="@id/mainPage" />
     </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.testapp.PhotoFragment"
+        android:label="PhotoFragment" />
 </navigation>
