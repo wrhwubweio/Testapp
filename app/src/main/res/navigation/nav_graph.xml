@@ -34,6 +34,11 @@
     </fragment>
     <fragment
         android:id="@+id/photoFragment"
-        android:name="com.example.testapp.PhotoFragment"
+        android:name="com.example.testapp.fragments.PhotoFragment"
         android:label="PhotoFragment" />
+    <fragment
+        android:id="@+id/loadImagesFragment"
+        android:name="com.example.testapp.LoadImagesFragment"
+        android:label="fragment_load_images"
+        tools:layout="@layout/fragment_load_images" />
 </navigation>

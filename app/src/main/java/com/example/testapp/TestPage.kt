@@ -10,10 +10,15 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.testapp.api.MainApi
+import com.example.testapp.database.QuestionDatabase
 import com.example.testapp.databinding.TestPageBinding
+import com.example.testapp.model.QuestionEntity
+import com.example.testapp.model.QuestionResponse
+import com.example.testapp.views.TestViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -24,9 +29,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class TestPage : Fragment() {
-    private lateinit var binding: TestPageBinding;
-    private lateinit var viewModel: TestViewModel
-    private val questionDao: QuestionDao by lazy { context?.let { QuestionDatabase.getInstance(it).questionDao() }!! }
+    private lateinit var binding: TestPageBinding
+    private val viewModel: TestViewModel by viewModels<TestViewModel>()
+    private val questionDao: QuestionDao by  lazy { context?.let { QuestionDatabase.getInstance(it).questionDao() }!! }
     private var index: Int = 0
 
     override fun onCreateView(
@@ -34,7 +39,6 @@ class TestPage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = TestPageBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(TestViewModel::class.java)
 
         binding.nameTest.text = "Тест №" + (getArguments()?.getLong("id_test")?.plus(1)).toString()
         binding.endTest.setOnClickListener{
@@ -71,7 +75,6 @@ class TestPage : Fragment() {
 
         return binding.root
     }
-
 
     private fun loadDataQuestions(){
         val retrofit = Retrofit.Builder()

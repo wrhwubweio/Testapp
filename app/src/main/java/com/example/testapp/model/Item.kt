@@ -1,4 +1,4 @@
-package com.example.testapp
+package com.example.testapp.model
 
 class Item (picture: Int, title: String?, active: Boolean) {
     private var mPicture = 0

@@ -1,8 +1,9 @@
-package com.example.testapp
+package com.example.testapp.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.example.testapp.ListStringConverter
 
 @Entity(tableName = "questions")
 @TypeConverters(ListStringConverter::class)

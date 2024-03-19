@@ -8,24 +8,24 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.testapp.databinding.FragmentMainPageBinding
+import com.example.testapp.model.Item
+import com.example.testapp.views.ListViewAdapter
+import com.example.testapp.views.MainViewModel
 import java.util.Random
 
 class MainPage : Fragment() {
-    private lateinit var binding: FragmentMainPageBinding;
-    private lateinit var viewModel: MainViewModel
-
+    private lateinit var binding: FragmentMainPageBinding
+    private val viewModel: MainViewModel by viewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMainPageBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding.outText.text =  getArguments()?.getString("name")
 

@@ -1,10 +1,13 @@
-package com.example.testapp
+package com.example.testapp.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.testapp.ListStringConverter
+import com.example.testapp.QuestionDao
+import com.example.testapp.model.QuestionEntity
 
 @Database(entities = [QuestionEntity::class], version = 1, exportSchema = false)
 @TypeConverters(ListStringConverter::class)
