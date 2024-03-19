@@ -26,16 +26,17 @@
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="129dp"
         android:layout_marginTop="8dp"
+        android:autoSizeMaxTextSize="@dimen/medium"
+        android:autoSizeMinTextSize="@dimen/small"
+        android:autoSizeTextType="uniform"
         android:gravity="center"
         android:text="Вопрос?"
         android:textColor="@color/black"
-        android:textSize="@dimen/medium"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTest" />
 
@@ -43,11 +44,10 @@
         android:id="@+id/timer"
         android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:textSize="@dimen/medium"
         android:gravity="center"
         android:text="15:00"
         android:textColor="@color/gray"
-        android:textSize="@dimen/medium"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/endTest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -111,6 +111,7 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/a2_layout"
         android:layout_width="match_parent"
@@ -137,21 +138,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:id="@+id/a2"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginStart="10dp"
+            android:background="#00990055"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:layout_marginStart="10dp"
-            android:id="@+id/a2"
             android:src="@drawable/circle"
-            android:background="#00990055"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/a3_layout"
         android:layout_width="match_parent"
@@ -178,18 +179,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:id="@+id/a3"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginStart="10dp"
+            android:background="#00990055"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:layout_marginStart="10dp"
-            android:id="@+id/a3"
             android:src="@drawable/circle"
-            android:background="#00990055"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/a4_layout"
         android:layout_width="match_parent"
@@ -216,14 +218,14 @@
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <ImageButton
+            android:id="@+id/a4"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginStart="10dp"
+            android:background="#00990055"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:layout_marginStart="10dp"
-            android:id="@+id/a4"
             android:src="@drawable/circle"
-            android:background="#00990055"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageButton>
@@ -244,15 +246,16 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
     <ImageButton
         android:id="@+id/right"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
-        android:src="@drawable/right"
         android:layout_marginBottom="4dp"
         android:background="#00990055"
         android:gravity="center"
+        android:src="@drawable/right"
         android:textColor="@color/white"
         android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -260,7 +263,6 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toEndOf="@+id/endTest"
         tools:ignore="MissingConstraints" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

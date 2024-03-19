@@ -6,24 +6,23 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [CocktailEntity::class], version = 1, exportSchema = false)
+@Database(entities = [QuestionEntity::class], version = 1, exportSchema = false)
 @TypeConverters(ListStringConverter::class)
-abstract class CocktailDatabase : RoomDatabase() {
-    abstract fun cocktailDao(): CocktailDao
+abstract class QuestionDatabase : RoomDatabase() {
+    abstract fun questionDao(): QuestionDao
     companion object {
-        private var instance: CocktailDatabase? = null
+        private var instance: QuestionDatabase? = null
 
         @Synchronized
-        fun getInstance(context: Context): CocktailDatabase {
+        fun getInstance(context: Context): QuestionDatabase {
             if (instance == null) {
                 instance = Room.databaseBuilder(
                     context.applicationContext,
-                    CocktailDatabase::class.java, "cocktail-database"
+                    QuestionDatabase::class.java, "question-database"
                 ).build()
             }
             return instance!!
         }
     }
-
 }
 
