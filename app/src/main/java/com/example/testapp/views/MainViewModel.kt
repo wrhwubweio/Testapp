@@ -3,6 +3,9 @@ package com.example.testapp.views
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.testapp.R
+import com.example.testapp.model.Item
+import kotlin.random.Random
 
 class MainViewModel : ViewModel() {
     private val _navigateToLoginFragment = MutableLiveData<Boolean>()
@@ -34,5 +37,17 @@ class MainViewModel : ViewModel() {
 
     fun onTestNavigated(){
         _navigateToTestFragment.value = false
+    }
+
+    fun genList() : List<Item>{
+        val itemsList = (0..29).map { index ->
+            val pic = when (Random.nextInt(3)) {
+                0 -> R.drawable.circle
+                1 -> R.drawable.circle_done
+                else -> R.drawable.fail
+            }
+            Item(pic, "Test ${index + 1}", true)
+        }
+        return itemsList
     }
 }

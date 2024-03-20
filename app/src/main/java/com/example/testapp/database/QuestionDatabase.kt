@@ -22,7 +22,7 @@ abstract class QuestionDatabase : RoomDatabase() {
                 instance = Room.databaseBuilder(
                     context.applicationContext,
                     QuestionDatabase::class.java, "question-database"
-                ).build()
+                ).allowMainThreadQueries().build()
             }
             return instance!!
         }
