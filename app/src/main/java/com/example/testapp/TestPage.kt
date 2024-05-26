@@ -36,7 +36,7 @@ class TestPage : Fragment() {
         binding = TestPageBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(TestViewModel::class.java)
 
-        binding.nameTest.text = "Тест №" + (getArguments()?.getLong("id_test")?.plus(1)).toString()
+        //binding.nameTest.text = "Тест №" + (getArguments()?.getLong("id_test")?.plus(1)).toString()
         binding.endTest.setOnClickListener{
            viewModel.onButtonEnd()
         }

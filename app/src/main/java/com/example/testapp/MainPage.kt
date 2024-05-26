@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -27,17 +26,11 @@ class MainPage : Fragment() {
         binding = FragmentMainPageBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        binding.outText.text =  getArguments()?.getString("name")
-
         binding.listView.onItemClickListener =
             OnItemClickListener { adapterView, view, i, l ->
                 viewModel.setNumTest(l)
                 viewModel.onButtonTest()
             }
-
-        binding.quit.setOnClickListener{
-            viewModel.onButtonBack()
-        }
 
         viewModel.navigateToTestFragment.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate){
@@ -50,7 +43,7 @@ class MainPage : Fragment() {
 
         viewModel.navigateToLoginFragment.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate){
-                findNavController().navigate(R.id.action_mainPage_to_login)
+
             }
         })
         return binding.root
@@ -68,13 +61,22 @@ class MainPage : Fragment() {
         for (i in 0 .. 29) {
             var pic = R.drawable.circle
             val rand = Random().nextInt(3)
+            var precent = "-%"
+
             when (rand) {
-                0 -> pic = R.drawable.circle
-                1 -> pic = R.drawable.circle_done
-                2 -> pic = R.drawable.fail
+                0 -> pic = R.drawable.test
+                1 -> pic = R.drawable.test_done
+                2 -> pic = R.drawable.test_fail
             }
+
+            when (rand) {
+                0 -> precent = "-%"
+                1 -> precent = (50 + Random().nextInt(50)).toString() + "%"
+                2 -> precent = Random().nextInt(50).toString() + "%"
+            }
+
             val index = i + 1
-            items.add(Item(pic, "Test $index", true))
+            items.add(Item(pic, "Тест $index", precent))
         }
         val adapter = ListViewAdapter(view.context, 0,0, items)
         listView.setAdapter(adapter)

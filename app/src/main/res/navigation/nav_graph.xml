@@ -3,16 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/login">
-    <fragment
-        android:id="@+id/login"
-        android:name="com.example.testapp.Login"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_login_to_mainPage"
-            app:destination="@id/mainPage" />
-    </fragment>
+    app:startDestination="@id/mainPage">
     <fragment
         android:id="@+id/mainPage"
         android:name="com.example.testapp.MainPage"
@@ -21,8 +12,11 @@
             android:id="@+id/action_mainPage_to_testPage"
             app:destination="@id/testPage" />
         <action
-            android:id="@+id/action_mainPage_to_login"
-            app:destination="@id/login" />
+            android:id="@+id/action_mainPage_to_profile2"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_mainPage_to_library22"
+            app:destination="@id/library" />
     </fragment>
     <fragment
         android:id="@+id/testPage"
@@ -33,7 +27,25 @@
             app:destination="@id/mainPage" />
     </fragment>
     <fragment
-        android:id="@+id/photoFragment"
-        android:name="com.example.testapp.PhotoFragment"
-        android:label="PhotoFragment" />
+        android:id="@+id/profile"
+        android:name="com.example.testapp.Profile"
+        android:label="Profile" >
+        <action
+            android:id="@+id/action_profile2_to_mainPage"
+            app:destination="@id/mainPage" />
+        <action
+            android:id="@+id/action_profile2_to_library2"
+            app:destination="@id/library" />
+    </fragment>
+    <fragment
+        android:id="@+id/library"
+        android:name="com.example.testapp.Library"
+        android:label="Library" >
+        <action
+            android:id="@+id/action_library2_to_profile2"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_library2_to_mainPage"
+            app:destination="@id/mainPage" />
+    </fragment>
 </navigation>

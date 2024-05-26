@@ -1,14 +1,14 @@
 package com.example.testapp
 
-class Item (picture: Int, title: String?, active: Boolean) {
+class Item (picture: Int, title: String?, precent : String?) {
     private var mPicture = 0
     private var mTitle: String? = null
-    private var mActive = false
+    private var mPrecent: String? = null
 
     init {
         mPicture = picture
         mTitle = title
-        mActive = active
+        mPrecent = precent
     }
 
     fun getPicture(): Int {
@@ -19,7 +19,7 @@ class Item (picture: Int, title: String?, active: Boolean) {
         return mTitle
     }
 
-    fun ismActive(): Boolean {
-        return mActive
+    fun getPrecent(): String? {
+        return mPrecent
     }
 }

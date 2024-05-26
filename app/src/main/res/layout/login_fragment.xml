@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lite_gray"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
 
@@ -15,15 +15,15 @@
         android:layout_width="fill_parent"
         android:layout_height="72dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/blue"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Авторизация"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="@dimen/big"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="300dp"
@@ -41,7 +41,7 @@
             android:layout_width="300dp"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/input_field"
+            android:background="@drawable/input_frame"
             android:gravity="center"
             android:hint="@string/input_password"
             android:textColor="@color/black"
@@ -53,35 +53,26 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_baseline_key_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="300dp"
         android:layout_height="64dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <EditText
-            android:inputType="textEmailAddress"
             android:id="@+id/editText_login"
             android:layout_width="300dp"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/input_field"
+            android:background="@drawable/input_frame"
             android:gravity="center"
             android:hint="@string/input"
+            android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textColorHint="@color/gray"
             android:textSize="@dimen/small"
@@ -90,24 +81,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_baseline_person_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/ok"
+        android:id="@+id/register"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/button_second"
+        android:gravity="center"
+        android:text="РЕГИСТРАЦИЯ"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login"
         android:layout_width="256dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
         android:layout_marginBottom="28dp"
-        android:background="@color/blue"
+        android:background="@drawable/button_normal"
         android:gravity="center"
         android:text="@string/button_input"
         android:textColor="@color/white"
@@ -115,8 +113,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

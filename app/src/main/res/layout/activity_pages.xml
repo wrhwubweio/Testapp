@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/lite_gray"
     android:theme="@style/Theme.AppCompat"
-    tools:context=".MainActivity">
+    tools:context=".PagesActivity">
 
 
     <LinearLayout
@@ -21,9 +21,17 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            app:navGraph="@navigation/nav_graph_login"
+            app:navGraph="@navigation/nav_graph"
             app:defaultNavHost="true"
             android:layout_weight="1"/>
+
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/menu"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
