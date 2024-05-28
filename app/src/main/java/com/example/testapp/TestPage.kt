@@ -29,6 +29,7 @@ class TestPage : Fragment() {
     private val questionDao: QuestionDao by lazy { context?.let { QuestionDatabase.getInstance(it).questionDao() }!! }
     private var index: Int = 0
     private var answers: MutableList<Int> = mutableListOf()
+    private val max: Int = 9
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,9 +43,10 @@ class TestPage : Fragment() {
            viewModel.onButtonEnd()
         }
 
+
         viewModel.navigateToMainPageFragment.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate){
-                findNavController().navigate(R.id.action_testPage_to_mainPage)
+                findNavController().navigate(R.id.result)
                 viewModel.onMainPageNavigated()
             }
         })
@@ -53,28 +55,30 @@ class TestPage : Fragment() {
             loadDataQuestions()
         }
 
-        for (i in 0..9) {
+        for (i in 0..max) {
             answers.add(-1)
         }
 
 
         binding.right.setOnClickListener {
-            if (index >= 9) {
+            if (index >= max) {
                 index = 0
             } else {
                 index++
             }
             setQuestion(index)
+            setIndex()
             loadAnswer()
         }
 
         binding.left.setOnClickListener {
             if (index <= 0){
-                index = 9
+                index = max
             } else{
                 index --
             }
             setQuestion(index)
+            setIndex()
             loadAnswer()
         }
 
@@ -96,6 +100,10 @@ class TestPage : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun setIndex(){
+        binding.index.text = (index+1).toString() + "/" + (max+1).toString()
     }
 
     private fun loadAnswer(){

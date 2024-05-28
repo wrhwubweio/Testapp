@@ -1,5 +1,6 @@
 package com.example.testapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +11,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.testapp.databinding.FragmentMainPageBinding
 import java.util.Random
 
@@ -36,7 +36,8 @@ class MainPage : Fragment() {
             if (navigate){
                 val result = Bundle()
                 viewModel.numTest.value?.let { result.putLong("id_test", it) }
-                findNavController().navigate(R.id.action_mainPage_to_testPage, result)
+                val intent = Intent(requireActivity(), TestActivity::class.java)
+                startActivity(intent)
                 viewModel.onTestNavigated()
             }
         })

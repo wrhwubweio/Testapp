@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".TestActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Результат"
+        android:textColor="@color/black"
+        android:textSize="@dimen/big"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="70%"
+        android:textColor="@color/green"
+        android:textSize="80dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/end"
+        android:layout_width="256dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/button_normal"
+        android:gravity="center"
+        android:text="меню"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <GridView
+        android:id="@+id/library_grid"
+        android:layout_width="360dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:columnWidth="90dp"
+        android:gravity="center"
+        android:horizontalSpacing="30dp"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResult"
+        app:layout_constraintVertical_bias="0.276" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

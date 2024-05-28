@@ -9,22 +9,11 @@
         android:name="com.example.testapp.MainPage"
         android:label="MainPage" >
         <action
-            android:id="@+id/action_mainPage_to_testPage"
-            app:destination="@id/testPage" />
-        <action
             android:id="@+id/action_mainPage_to_profile2"
             app:destination="@id/profile" />
         <action
             android:id="@+id/action_mainPage_to_library22"
             app:destination="@id/library" />
-    </fragment>
-    <fragment
-        android:id="@+id/testPage"
-        android:name="com.example.testapp.TestPage"
-        android:label="TestPage" >
-        <action
-            android:id="@+id/action_testPage_to_mainPage"
-            app:destination="@id/mainPage" />
     </fragment>
     <fragment
         android:id="@+id/profile"
