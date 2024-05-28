@@ -28,6 +28,7 @@ class TestPage : Fragment() {
     private lateinit var viewModel: TestViewModel
     private val questionDao: QuestionDao by lazy { context?.let { QuestionDatabase.getInstance(it).questionDao() }!! }
     private var index: Int = 0
+    private var answers: MutableList<Int> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,9 +48,15 @@ class TestPage : Fragment() {
                 viewModel.onMainPageNavigated()
             }
         })
+
         if(checkInternetPermission()) {
             loadDataQuestions()
         }
+
+        for (i in 0..9) {
+            answers.add(-1)
+        }
+
 
         binding.right.setOnClickListener {
             if (index >= 9) {
@@ -58,6 +65,7 @@ class TestPage : Fragment() {
                 index++
             }
             setQuestion(index)
+            loadAnswer()
         }
 
         binding.left.setOnClickListener {
@@ -67,11 +75,55 @@ class TestPage : Fragment() {
                 index --
             }
             setQuestion(index)
+            loadAnswer()
+        }
+
+
+        binding.a1Text.setOnClickListener{
+            selectAnswer(0)
+        }
+
+        binding.a2Text.setOnClickListener{
+            selectAnswer(1)
+        }
+
+        binding.a3Text.setOnClickListener{
+            selectAnswer(2)
+        }
+
+        binding.a4Text.setOnClickListener{
+            selectAnswer(3)
         }
 
         return binding.root
     }
 
+    private fun loadAnswer(){
+        if(answers[index] == -1){
+            resetAnswers()
+            return
+        }
+        selectAnswer(answers[index])
+    }
+
+    private fun selectAnswer(id: Int){
+        resetAnswers()
+
+        when(id){
+            0 ->  binding.a1Text.setBackgroundResource(R.drawable.ans_back_choose)
+            1 ->  binding.a2Text.setBackgroundResource(R.drawable.ans_back_choose)
+            2 ->  binding.a3Text.setBackgroundResource(R.drawable.ans_back_choose)
+            3 ->  binding.a4Text.setBackgroundResource(R.drawable.ans_back_choose)
+        }
+        answers[index] = id
+    }
+
+    private fun resetAnswers(){
+        binding.a1Text.setBackgroundResource(R.drawable.answer_back)
+        binding.a2Text.setBackgroundResource(R.drawable.answer_back)
+        binding.a3Text.setBackgroundResource(R.drawable.answer_back)
+        binding.a4Text.setBackgroundResource(R.drawable.answer_back)
+    }
 
     private fun loadDataQuestions(){
         val retrofit = Retrofit.Builder()
