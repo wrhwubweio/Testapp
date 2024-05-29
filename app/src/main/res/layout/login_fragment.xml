@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="Авторизация"
+        android:text="@string/authority"
         android:textColor="@color/black"
         android:textSize="@dimen/big"
         android:textStyle="bold"
@@ -91,7 +91,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/button_second"
         android:gravity="center"
-        android:text="РЕГИСТРАЦИЯ"
+        android:text="@string/registry"
         android:textColor="@color/white"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/login"

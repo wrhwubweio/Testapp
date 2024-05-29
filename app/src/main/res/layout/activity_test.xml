@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/lite_gray"
     android:theme="@style/Theme.AppCompat"
-    tools:context=".TestActivity">
+    tools:context=".activities.TestActivity">
 
 
     <LinearLayout

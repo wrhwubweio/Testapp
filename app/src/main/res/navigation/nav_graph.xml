@@ -6,7 +6,7 @@
     app:startDestination="@id/mainPage">
     <fragment
         android:id="@+id/mainPage"
-        android:name="com.example.testapp.MainPage"
+        android:name="com.example.testapp.fragments.MainPage"
         android:label="MainPage" >
         <action
             android:id="@+id/action_mainPage_to_profile2"
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/profile"
-        android:name="com.example.testapp.Profile"
+        android:name="com.example.testapp.fragments.Profile"
         android:label="Profile" >
         <action
             android:id="@+id/action_profile2_to_mainPage"
@@ -25,10 +25,13 @@
         <action
             android:id="@+id/action_profile2_to_library2"
             app:destination="@id/library" />
+        <action
+            android:id="@+id/action_profile_to_create"
+            app:destination="@id/create" />
     </fragment>
     <fragment
         android:id="@+id/library"
-        android:name="com.example.testapp.Library"
+        android:name="com.example.testapp.fragments.Library"
         android:label="Library" >
         <action
             android:id="@+id/action_library2_to_profile2"
@@ -36,5 +39,17 @@
         <action
             android:id="@+id/action_library2_to_mainPage"
             app:destination="@id/mainPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/create"
+        android:name="com.example.testapp.fragments.Create"
+        android:label="fragment_create"
+        tools:layout="@layout/fragment_create" >
+        <action
+            android:id="@+id/action_create_to_mainPage"
+            app:destination="@id/mainPage" />
+        <action
+            android:id="@+id/action_create_to_library"
+            app:destination="@id/library" />
     </fragment>
 </navigation>

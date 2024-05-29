@@ -29,4 +29,6 @@
     <string name="title_activity_pages">PagesActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="registry">РЕГИСТРАЦИЯ</string>
+    <string name="authority">Авторизация</string>
 </resources>

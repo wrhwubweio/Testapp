@@ -8,20 +8,19 @@
     android:layout_height="match_parent"
     android:background="@color/lite_gray"
     android:theme="@style/Theme.AppCompat"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.CreateActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            app:navGraph="@navigation/nav_graph_login"
+            app:navGraph="@navigation/nav_graph_create"
             app:defaultNavHost="true"
             android:layout_weight="1"/>
     </LinearLayout>
