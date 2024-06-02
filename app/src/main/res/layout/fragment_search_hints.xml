@@ -8,21 +8,18 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-
-    <LinearLayout
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="30dp"
+        android:columnWidth="90dp"
+        android:divider="@null"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="52dp" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/nav_host_fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:navGraph="@navigation/nav_graph_login"
-            app:defaultNavHost="true"
-            android:layout_weight="1"/>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -12,26 +12,15 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Результат"
-        android:textColor="@color/black"
-        android:textSize="@dimen/big"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        style="@style/H2"
+        android:text="@string/result" />
 
     <TextView
         android:id="@+id/textResult"
         android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="70%"
         android:textColor="@color/green"
@@ -43,17 +32,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/end"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
+        style="@style/ButtonStyleMain"
         android:layout_marginBottom="28dp"
-        android:background="@drawable/button_normal"
         android:gravity="center"
-        android:text="меню"
-        android:textColor="@color/white"
-        android:textSize="32sp"
+        android:text="@string/menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

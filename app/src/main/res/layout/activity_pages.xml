@@ -6,8 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lite_gray"
-    android:theme="@style/MainStyle"
     tools:context=".activities.PagesActivity">
 
 
@@ -30,7 +28,8 @@
             android:id="@+id/include"
             layout="@layout/menu"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
+            style="@style/Theme.AppCompat"
             />
     </LinearLayout>
 

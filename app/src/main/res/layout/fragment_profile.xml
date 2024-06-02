@@ -6,35 +6,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".activities.MainActivity">
-
 
     <TextView
         android:id="@+id/head"
-        android:layout_width="fill_parent"
-        android:layout_height="36dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="Профиль"
-        android:textColor="@color/black"
-        android:textSize="@dimen/medium"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        style="@style/H1"
+        android:text="@string/profile"
+        />
+
 
     <TextView
         android:id="@+id/info_pattern"
-        android:layout_width="256dp"
-        android:layout_height="160dp"
+        style="@style/a1"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:paddingHorizontal="30dp"
         android:layout_centerHorizontal="true"
         android:gravity="left"
         android:text="Имя: \nФамилия: \nОтчество: \nВозраст: \nПол: \nРоль:"
-        android:textColor="@color/black"
-        android:textSize="@dimen/small"
-        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,28 +31,30 @@
 
     <TextView
         android:id="@+id/info"
-        android:layout_width="256dp"
-        android:layout_height="160dp"
+        style="@style/a1"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
         android:gravity="right"
+        android:paddingHorizontal="30dp"
         android:text="Иван \nШишкин \nНиколаевич \n20 \nМ \nОбучающийся"
-        android:textColor="@color/black"
-        android:textSize="@dimen/small"
-        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="256dp"
-        android:layout_height="256dp"
-        android:layout_marginTop="108dp"
+        style="@style/image_vec"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/profile_ava"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head" />
+        app:layout_constraintTop_toBottomOf="@+id/head"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

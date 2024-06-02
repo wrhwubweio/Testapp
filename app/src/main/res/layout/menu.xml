@@ -2,130 +2,96 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
+    android:layout_height="40dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    android:background="@color/blue">
+    android:background="@color/blue"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         android:gravity="center"
         android:orientation="horizontal"
-        android:background="@color/blue"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-
+            android:id="@+id/profile_button"
             >
+
             <ImageButton
-                android:id="@+id/profile_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:clickable="false"
                 android:background="@drawable/profile_icone"
-                app:layout_constraintBottom_toTopOf="@+id/profile_text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/profile_text"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="профиль"
-                android:gravity="center"
-                android:textSize="10dp"
-                android:textColor="@color/white"
-                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:id="@+id/my_test_button"
             >
+
             <ImageButton
-                android:id="@+id/my_test_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:clickable="false"
                 android:background="@drawable/my_test"
-                app:layout_constraintBottom_toTopOf="@+id/test_text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/test_text"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="профиль"
-                android:gravity="center"
-                android:textSize="10dp"
-                android:textColor="@color/white"
-                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:id="@+id/library_button"
             >
+
             <ImageButton
-                android:id="@+id/library_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:clickable="false"
                 android:background="@drawable/library"
-                app:layout_constraintBottom_toTopOf="@+id/library_text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/library_text"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="библиотека"
-                android:gravity="center"
-                android:textSize="10dp"
-                android:textColor="@color/white"
-                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:id="@+id/create_button"
             >
-            <ImageButton
-                android:id="@+id/create_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+            <Button
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:clickable="false"
                 android:background="@drawable/create"
-                app:layout_constraintBottom_toTopOf="@+id/create_text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/create_text"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="создать"
-                android:gravity="center"
-                android:textSize="10dp"
-                android:textColor="@color/white"
-                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 

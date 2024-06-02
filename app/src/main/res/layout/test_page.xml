@@ -25,6 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/a1"
         android:id="@+id/question"
         android:layout_width="320dp"
         android:layout_height="150dp"
@@ -34,7 +35,6 @@
         android:autoSizeTextType="uniform"
         android:gravity="center_horizontal"
         android:text="Язык Kotlin стал официальным языком разработки android приложений в"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,15 +56,10 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/endTest"
-        android:layout_width="200dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
+        style="@style/ButtonStyleMain"
         android:layout_marginBottom="4dp"
-        android:background="@drawable/button_normal"
-        android:gravity="center"
         android:text="@string/end_test"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="@dimen/small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

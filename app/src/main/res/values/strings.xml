@@ -4,6 +4,7 @@
     <string name="input_password">пароль</string>
     <string name="out_text">Input text</string>
     <string name="button_input">войти</string>
+    <string name="registry">регистрация</string>
     <string name="button_test">тест</string>
     <string name="end_test">ЗАВЕРШИТЬ ТЕСТ</string>
     <string name="title_activity_second">SecondActivity</string>
@@ -29,6 +30,13 @@
     <string name="title_activity_pages">PagesActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="registry">РЕГИСТРАЦИЯ</string>
     <string name="authority">Авторизация</string>
+    <string name="registry_head">Регистрация</string>
+    <string name="testes">Мои тесты</string>
+    <string name="library">Библиотека</string>
+    <string name="profile">Профиль</string>
+    <string name="result">Результат</string>
+    <string name="menu">меню</string>
+    <string name="creation_list">Создание теста</string>
+    <string name="search">Поиск</string>
 </resources>

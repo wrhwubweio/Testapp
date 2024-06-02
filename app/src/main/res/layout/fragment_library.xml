@@ -11,62 +11,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
-
-        <TextView
-            android:id="@+id/head"
-            android:layout_width="fill_parent"
-            android:layout_height="36dp"
-            android:layout_marginTop="4dp"
-            android:gravity="center"
-            android:text="Библиотека"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp">
+            android:layout_height="90dp">
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="350dp"
+            <EditText
+                android:id="@+id/search_input"
+                style="@style/input"
+                android:layout_width="365dp"
                 android:layout_height="64dp"
-
-                android:src="@drawable/search_field"
+                android:background="@drawable/search_field"
+                android:hint="Найти тесты"
+                android:inputType="text"
+                android:maxLength="30"
+                android:paddingHorizontal="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.615" />
 
-            <TextView
-                android:layout_width="128dp"
-                android:layout_height="32dp"
-                android:text="Поиск"
-                android:textColor="@color/black"
-                android:textSize="@dimen/small"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toTopOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/clear_search"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="44dp"
+                android:background="@drawable/cross"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/gray" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <GridView
-            android:id="@+id/library_grid"
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:numColumns="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/head"
-            android:gravity="center"
-            />
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:navGraph="@navigation/nav_graph_library"
+            app:defaultNavHost="true"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 

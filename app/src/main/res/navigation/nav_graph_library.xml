@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_library"
+    app:startDestination="@id/categoryLibrary">
+
+    <fragment
+        android:id="@+id/categoryLibrary"
+        android:name="com.example.testapp.fragments.CategoryLibrary"
+        android:label="CategoryLibrary" >
+        <action
+            android:id="@+id/action_categoryLibrary_to_searchHints"
+            app:destination="@id/searchHints" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchHints"
+        android:name="com.example.testapp.fragments.SearchHints"
+        android:label="SearchHints" />
+</navigation>

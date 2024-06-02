@@ -11,18 +11,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="fill_parent"
-        android:layout_height="36dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="Мои тесты"
-        android:textColor="@color/black"
-        android:textSize="@dimen/medium"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        style="@style/H1"
+        android:text="@string/creation_list"
+        />
 
 
     <ListView
@@ -31,10 +22,10 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/small"
         android:layout_marginTop="52dp"
+        android:columnWidth="90dp"
         android:divider="@null"
         android:dividerHeight="1dp"
         android:scrollbars="none"
-        android:columnWidth="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -45,9 +36,9 @@
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/add_new"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/add_new"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
