@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:gravity="center"
         android:orientation="horizontal"
-
+        android:background="@color/blue"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout

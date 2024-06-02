@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lite_gray"
-    android:theme="@style/Theme.AppCompat"
+    android:theme="@style/MainStyle"
     tools:context=".activities.TestActivity">
 
 
