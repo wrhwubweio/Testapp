@@ -9,5 +9,13 @@
         android:id="@+id/newTestCreation"
         android:name="com.example.testapp.fragments.NewTestCreation"
         android:label="fragment_new_test_creation"
-        tools:layout="@layout/fragment_new_test_creation" />
+        tools:layout="@layout/fragment_new_test_creation" >
+        <action
+            android:id="@+id/action_newTestCreation_to_questionsCreate"
+            app:destination="@id/questionsCreate" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionsCreate"
+        android:name="com.example.testapp.fragments.QuestionsCreate"
+        android:label="QuestionsCreate" />
 </navigation>

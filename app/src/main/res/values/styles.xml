@@ -75,4 +75,10 @@
         <item name="tint">@color/colorPrimary</item>
         <item name="tintMode">multiply</item>
     </style>
+
+    <style name="answers">
+        <item name="backgroundTint">@color/colorSecondary</item>
+        <item name="backgroundTintMode">multiply</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
 </resources>

@@ -10,13 +10,13 @@ import androidx.room.Query
 interface QuestionDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertQuestion(cocktail: QuestionEntity): Long
+    fun insertQuestion(question: QuestionEntity): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertQuestions(cocktails: List<QuestionEntity>): List<Long>
+    fun insertQuestions(questions: List<QuestionEntity>): List<Long>
 
     @Query("SELECT * FROM questions")
-    public suspend fun getCocktails(): List<QuestionEntity>
+    public suspend fun getQuestions(): List<QuestionEntity>
 
     @Query("SELECT * FROM questions WHERE id = :questionId")
     public suspend fun getQuestionById(questionId: Int): QuestionEntity

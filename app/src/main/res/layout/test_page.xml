@@ -82,6 +82,7 @@
         app:layout_constraintVertical_bias="0.113">
 
         <androidx.appcompat.widget.AppCompatButton
+            style="@style/answers"
             android:id="@+id/a1_text"
             android:layout_width="320dp"
             android:layout_height="70dp"
@@ -95,6 +96,7 @@
             app:layout_constraintTop_toBottomOf="@+id/question" />
 
         <androidx.appcompat.widget.AppCompatButton
+            style="@style/answers"
             android:id="@+id/a2_text"
             android:layout_width="320dp"
             android:layout_height="70dp"
@@ -109,6 +111,7 @@
             app:layout_constraintTop_toBottomOf="@+id/question" />
 
         <androidx.appcompat.widget.AppCompatButton
+            style="@style/answers"
             android:id="@+id/a3_text"
             android:layout_width="320dp"
             android:layout_height="70dp"
@@ -123,6 +126,7 @@
             app:layout_constraintTop_toBottomOf="@+id/question" />
 
         <androidx.appcompat.widget.AppCompatButton
+            style="@style/answers"
             android:id="@+id/a4_text"
             android:layout_width="320dp"
             android:layout_height="70dp"

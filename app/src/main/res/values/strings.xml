@@ -40,4 +40,11 @@
     <string name="creation_list">Создание теста</string>
     <string name="search">Поиск</string>
     <string name="return_password">восстановить</string>
+    <string name="description">Описание</string>
+    <string name="name">Название</string>
+    <string name="group">Группа</string>
+    <string name="count_question">Колисество вопросов</string>
+    <string name="CREATE">СОЗДАТЬ</string>
+    <string name="new_test">Новый тест</string>
+    <string name="question">Вопрос</string>
 </resources>

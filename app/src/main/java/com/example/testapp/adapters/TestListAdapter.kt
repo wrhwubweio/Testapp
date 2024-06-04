@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
 import com.example.testapp.R
+import com.example.testapp.data.question.TestEntity
 
 public interface OnTestCreateClickListener {
     fun onStatClick(position: Int)
@@ -15,11 +16,11 @@ public interface OnTestCreateClickListener {
     fun onDeleteClick(position: Int)
 }
 
-class TestListAdapter(private val context: Context, private var data: MutableList<String>,
+class TestListAdapter(private val context: Context, private var data: MutableList<TestEntity>,
                       private val onTestCreateClickListener: OnTestCreateClickListener) : BaseAdapter() {
     override fun getCount(): Int = data.size
 
-    override fun getItem(position: Int): Any = data[position]
+    override fun getItem(position: Int): TestEntity = data[position]
 
     override fun getItemId(position: Int): Long = position.toLong()
 
@@ -30,9 +31,9 @@ class TestListAdapter(private val context: Context, private var data: MutableLis
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_create_test, parent, false)
-        val text = data[position]
+        val test = data[position]
 
-        view.findViewById<TextView>(R.id.name).text = text
+        view.findViewById<TextView>(R.id.name).text = test.name
 
         view.findViewById<Button>(R.id.statistic).setOnClickListener{
             onTestCreateClickListener.onStatClick(position)
