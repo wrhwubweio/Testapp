@@ -39,4 +39,5 @@
     <string name="menu">меню</string>
     <string name="creation_list">Создание теста</string>
     <string name="search">Поиск</string>
+    <string name="return_password">восстановить</string>
 </resources>

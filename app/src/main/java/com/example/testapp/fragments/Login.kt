@@ -8,20 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.testapp.activities.PagesActivity
-import com.example.testapp.view_models.LoginViewModel
 import com.example.testapp.R
-import com.example.testapp.databinding.LoginFragmentBinding
+import com.example.testapp.activities.PagesActivity
+import com.example.testapp.databinding.FragmentLoginBinding
+import com.example.testapp.view_models.LoginViewModel
 
 class Login : Fragment() {
-    private lateinit var binding: LoginFragmentBinding;
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = LoginFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.login.setOnClickListener{
@@ -38,6 +38,10 @@ class Login : Fragment() {
 
         binding.register.setOnClickListener{
             findNavController().navigate(R.id.action_login_to_register2)
+        }
+
+        binding.forgot.setOnClickListener{
+            findNavController().navigate(R.id.action_login_to_forgotPassword)
         }
 
         return binding.root

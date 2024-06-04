@@ -11,9 +11,16 @@
         <action
             android:id="@+id/action_login_to_register2"
             app:destination="@id/register2" />
+        <action
+            android:id="@+id/action_login_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
     </fragment>
     <fragment
         android:id="@+id/register2"
         android:name="com.example.testapp.fragments.Register"
         android:label="Register" />
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.example.testapp.fragments.ForgotPassword"
+        android:label="ForgotPassword" />
 </navigation>

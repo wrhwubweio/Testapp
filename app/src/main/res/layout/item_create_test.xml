@@ -66,21 +66,29 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/statistic" />
+                android:background="@drawable/statistic"
+                android:backgroundTint="@color/textColor"
+                android:backgroundTintMode="src_in"
+                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/edit"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/edit" />
+                android:background="@drawable/edit"
+                android:backgroundTint="@color/textColor"
+                android:backgroundTintMode="src_in"
+                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/delete"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/delete" />
+                android:background="@drawable/delete"
+                android:backgroundTint="@color/textColor"
+                android:backgroundTintMode="src_in"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
