@@ -1,4 +1,4 @@
-package com.example.testapp.data
+package com.example.testapp.data.question
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -28,7 +28,7 @@ interface QuestionDao {
     public fun getAllQuestions(): List<QuestionEntity>
 
     @Query("DELETE FROM questions")
-    public fun deleteAllQuestions(): Int // Метод для удаления всех коктейлей из базы данных
+    public fun deleteAllQuestions(): Int
 
     @Query("DELETE FROM questions WHERE question NOT IN (SELECT id FROM questions ORDER BY id DESC LIMIT 15)")
     public fun deleteExcessQuestions()

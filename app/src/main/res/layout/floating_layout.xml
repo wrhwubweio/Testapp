@@ -40,7 +40,7 @@
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Test"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         android:textSize="@dimen/big"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

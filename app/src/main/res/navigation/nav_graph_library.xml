@@ -16,4 +16,20 @@
         android:id="@+id/searchHints"
         android:name="com.example.testapp.fragments.SearchHints"
         android:label="SearchHints" />
+    <fragment
+        android:id="@+id/emptySearch"
+        android:name="com.example.testapp.fragments.EmptySearch"
+        android:label="EmptySearch" >
+        <action
+            android:id="@+id/action_emptySearch_to_searchHints"
+            app:destination="@id/searchHints" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorSearch"
+        android:name="com.example.testapp.fragments.ErrorSearch"
+        android:label="ErrorSearch" >
+        <action
+            android:id="@+id/action_errorSearch_to_searchHints"
+            app:destination="@id/searchHints" />
+    </fragment>
 </navigation>

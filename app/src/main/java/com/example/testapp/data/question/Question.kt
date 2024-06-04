@@ -1,4 +1,4 @@
-package com.example.testapp.data
+package com.example.testapp.data.question
 
 data class Question(
     val question: String,

@@ -13,14 +13,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.testapp.data.MainApi
-import com.example.testapp.data.QuestionDao
-import com.example.testapp.data.QuestionDatabase
-import com.example.testapp.data.QuestionEntity
-import com.example.testapp.data.QuestionResponse
 import com.example.testapp.R
-import com.example.testapp.view_models.TestViewModel
+import com.example.testapp.data.question.MainApi
+import com.example.testapp.data.question.QuestionDao
+import com.example.testapp.data.question.QuestionDatabase
+import com.example.testapp.data.question.QuestionEntity
+import com.example.testapp.data.question.QuestionResponse
 import com.example.testapp.databinding.TestPageBinding
+import com.example.testapp.view_models.TestViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -181,7 +181,7 @@ class TestPage : Fragment() {
 
                 override fun onFailure(call: Call<QuestionResponse>, t: Throwable) {
                     Log.d(
-                        "AddedCocktail",
+                        "AddedTest",
                         "Error"
                     )
                 }

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#2B41E4</color>
+    <color name="colorSecondary">#EAECFF</color>
+    <color name="colorBackground">#FFFFFFFF</color>
+    <color name="buttonTextColor">#FFFFFFFF</color>
+    <color name="textColor">#FF000000</color>
+    <color name="textColorSecondary">#FFFFFF</color>
+    <color name="textColorHint">#ACACAC</color>
+
     <color name="gray">#b0b0b0</color>
     <color name="gray_black">#292B39</color>
-    <color name="blue">#2B41E4</color>
     <color name="alpha">#00990055</color>
     <color name="green">#00B828</color>
     <color name="green_light">#92FFAA</color>
-    <color name="lite_gray">#e6e6e6</color>
 </resources>

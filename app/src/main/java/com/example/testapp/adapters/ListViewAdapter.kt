@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.testapp.R
-import com.example.testapp.data.Item
+import com.example.testapp.data.question.Item
 
 class ListViewAdapter(
     context: Context,

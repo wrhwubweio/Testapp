@@ -8,17 +8,21 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <ListView
-        android:id="@+id/listView"
+    <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="30dp"
-        android:columnWidth="90dp"
-        android:divider="@null"
-        android:dividerHeight="1dp"
-        android:scrollbars="none"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="52dp" />
+        android:orientation="horizontal">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="30dp"
+            android:scrollbars="none"/>
+    </LinearLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.testapp.data
+package com.example.testapp.data.question
 
 class Item (picture: Int, title: String?, precent : String?) {
     private var mPicture = 0

@@ -11,12 +11,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.testapp.data.Item
-import com.example.testapp.adapters.ListViewAdapter
-import com.example.testapp.view_models.MainViewModel
 import com.example.testapp.R
 import com.example.testapp.activities.TestActivity
+import com.example.testapp.adapters.ListViewAdapter
+import com.example.testapp.data.question.Item
 import com.example.testapp.databinding.FragmentMainPageBinding
+import com.example.testapp.view_models.MainViewModel
 import java.util.Random
 
 class MainPage : Fragment() {

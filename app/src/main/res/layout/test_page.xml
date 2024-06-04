@@ -5,19 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/colorBackground"
     android:orientation="vertical">
 
 
     <TextView
         android:id="@+id/index"
+        style="a1|tintBlue"
         android:layout_width="64dp"
         android:layout_height="32dp"
         android:background="@drawable/button_normal"
         android:gravity="center"
         android:text="1/10"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textColor="@color/buttonTextColor"
+        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTintMode="src_in"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -136,30 +138,25 @@
 
     </LinearLayout>
 
-    <ImageButton
+    <Button
         android:id="@+id/left"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
         android:layout_marginBottom="4dp"
-        android:background="#00990055"
-        android:scaleType="fitCenter"
-        android:src="@drawable/left_arrow"
+        android:background="@drawable/left_arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/endTest"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
+    <Button
         android:id="@+id/right"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
         android:layout_marginBottom="4dp"
-        android:background="#00990055"
+        android:background="@drawable/right_arrow"
         android:gravity="center"
-        android:scaleType="fitCenter"
-        android:src="@drawable/right_arrow"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/endTest" />
