@@ -14,7 +14,7 @@ class ListViewAdapter(
     context: Context,
     resource: Int,
     textViewResourceId: Int,
-    objects: ArrayList<Item>
+    objects: ArrayList<Item>,
 ) : ArrayAdapter<Item>(context, resource, textViewResourceId, objects) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {

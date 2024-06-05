@@ -37,6 +37,7 @@ class TestPage : Fragment() {
     private var index: Int = 0
     private var answers: MutableList<Int> = mutableListOf()
     private val max: Int = 9
+    private var category = 23
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +50,6 @@ class TestPage : Fragment() {
         binding.endTest.setOnClickListener{
            viewModel.onButtonEnd()
         }
-
 
         viewModel.navigateToMainPageFragment.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate){
@@ -149,7 +149,7 @@ class TestPage : Fragment() {
         val quizApi = retrofit.create(MainApi::class.java)
 
         GlobalScope.launch(Dispatchers.IO) {
-            val call = quizApi.getQuiz(10, 23, "multiple")
+            val call = quizApi.getQuiz(10, MainPage.getInstance().category, "multiple")
             call.enqueue(object : Callback<QuestionResponse> {
                 override fun onResponse(
                     call: Call<QuestionResponse>,

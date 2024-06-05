@@ -9,7 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
 import com.example.testapp.data.question.Categories
 
-class CategoryAdapter(private val categories: List<Categories>) :
+public interface OnClickCategoryListener {
+    fun onAddClick(pos: Int)
+}
+
+
+class CategoryAdapter(private val categories: List<Categories>, private val onClickCategoryListener: OnClickCategoryListener) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,11 +34,26 @@ class CategoryAdapter(private val categories: List<Categories>) :
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val categoryNameTextView = view.findViewById<TextView>(R.id.category_name)
+        private val addTest = view.findViewById<TextView>(R.id.add_test)
 
         fun bind(category: Categories) {
             categoryNameTextView.text = category.name
             Log.d("MINE", category.name)
+            addTest.setOnClickListener {
+                onClickCategoryListener.onAddClick(category.id)
+            }
         }
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+

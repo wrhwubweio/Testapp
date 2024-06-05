@@ -44,6 +44,8 @@ class NewTestCreation : Fragment() {
 
                 val testEntity = TestEntity(
                     index,
+                    -1,
+                    -1.0,
                     binding.name.text.toString(),
                     binding.description.text.toString(),
                     binding.group.text.toString(),

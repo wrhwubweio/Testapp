@@ -79,8 +79,6 @@ class Create : Fragment(), OnTestCreateClickListener {
                 listView.setAdapter(adapter)
             }
         }
-
-
     }
 
     override fun onStatClick(position: Int) {

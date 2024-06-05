@@ -11,18 +11,30 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.testapp.R
+import com.example.testapp.activities.CreateActivity
 import com.example.testapp.activities.TestActivity
 import com.example.testapp.adapters.ListViewAdapter
+import com.example.testapp.adapters.OnTestCreateClickListener
+import com.example.testapp.adapters.TestListAdapter
 import com.example.testapp.data.question.Item
+import com.example.testapp.data.question.MyTestesDB
+import com.example.testapp.data.question.TestDao
 import com.example.testapp.databinding.FragmentMainPageBinding
 import com.example.testapp.view_models.MainViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Random
 
 class MainPage : Fragment() {
     private lateinit var binding: FragmentMainPageBinding;
     private lateinit var viewModel: MainViewModel
-
+    private val testDao: TestDao by lazy { context?.let { MyTestesDB.getInstance(it).testDao() }!! }
+    private var adapter: ListViewAdapter? = null
+    public var category = 23
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +42,8 @@ class MainPage : Fragment() {
     ): View? {
         binding = FragmentMainPageBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        instance = this
 
         binding.listView.onItemClickListener =
             OnItemClickListener { adapterView, view, i, l ->
@@ -40,9 +54,13 @@ class MainPage : Fragment() {
         viewModel.navigateToTestFragment.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate){
                 val result = Bundle()
-                viewModel.numTest.value?.let { result.putLong("id_test", it) }
+                val index = viewModel.numTest.value
+                if (index != null) {
+                    category = adapter?.getItem(index.toInt())?.getCategory() ?: -1
+                }
+                result.putInt("id_test", category)
                 val intent = Intent(requireActivity(), TestActivity::class.java)
-                startActivity(intent)
+                startActivity(intent, result)
                 viewModel.onTestNavigated()
             }
         })
@@ -64,28 +82,34 @@ class MainPage : Fragment() {
     private fun generateList(view: View){
         val listView = binding.listView
         val items = ArrayList<Item>()
-        for (i in 0 .. 29) {
-            var pic = R.drawable.circle
-            val rand = Random().nextInt(3)
-            var precent = "-%"
 
-            when (rand) {
-                0 -> pic = R.drawable.test
-                1 -> pic = R.drawable.test_done
-                2 -> pic = R.drawable.test_fail
+        GlobalScope.launch(Dispatchers.IO) {
+            val dataTestes = testDao.getTestes()
+            withContext(Dispatchers.Main) {
+
+                for (i in 0 .. dataTestes.size - 1) {
+                    var pic = R.drawable.test
+                    val rand = Random().nextInt(3)
+                    var precent = "-%"
+
+                    when (rand) {
+                        0 -> pic = R.drawable.test
+                        1 -> pic = R.drawable.test_done
+                        2 -> pic = R.drawable.test_fail
+                    }
+
+                    when (rand) {
+                        0 -> precent = "-%"
+                        1 -> precent = (50 + Random().nextInt(50)).toString() + "%"
+                        2 -> precent = Random().nextInt(50).toString() + "%"
+                    }
+
+                    items.add(Item(pic, dataTestes[i].name, precent, dataTestes[i].categoryId))
+                }
+                adapter = ListViewAdapter(view.context, 0,0, items)
+                listView.setAdapter(adapter)
             }
-
-            when (rand) {
-                0 -> precent = "-%"
-                1 -> precent = (50 + Random().nextInt(50)).toString() + "%"
-                2 -> precent = Random().nextInt(50).toString() + "%"
-            }
-
-            val index = i + 1
-            items.add(Item(pic, "Тест $index", precent))
         }
-        val adapter = ListViewAdapter(view.context, 0,0, items)
-        listView.setAdapter(adapter)
     }
 
     private fun outInfo(text: String, outToast: Boolean) {
@@ -96,5 +120,15 @@ class MainPage : Fragment() {
             text, Toast.LENGTH_SHORT
         )
         toast.show()
+    }
+
+    companion object {
+        private var instance: MainPage? = null
+        fun getInstance(): MainPage {
+            if (instance == null) {
+                instance = MainPage()
+            }
+            return instance!!
+        }
     }
 }

@@ -6,19 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database(entities = [TestEntity::class], version = 11, exportSchema = false)
+@Database(entities = [TestEntity::class], version = 4, exportSchema = false)
 @TypeConverters(ListStringConverter::class)
-abstract class TestDatabase : RoomDatabase() {
+abstract class MyTestesDB : RoomDatabase() {
     abstract fun testDao(): TestDao
     companion object {
-        private var instance: TestDatabase? = null
+        private var instance: MyTestesDB? = null
 
         @Synchronized
-        fun getInstance(context: Context): TestDatabase {
+        fun getInstance(context: Context): MyTestesDB {
             if (instance == null) {
                 instance = Room.databaseBuilder(
                     context.applicationContext,
-                    TestDatabase::class.java, "test-database"
+                    MyTestesDB::class.java, "my-testes-database"
                 ).fallbackToDestructiveMigration().build()
             }
             return instance!!

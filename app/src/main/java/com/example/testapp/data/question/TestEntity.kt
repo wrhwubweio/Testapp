@@ -9,6 +9,8 @@ import androidx.room.TypeConverters
 @TypeConverters(QuestionConverter::class)
 data class TestEntity(
     @PrimaryKey val id: Int,
+    val categoryId: Int,
+    val percentage: Double,
     val name: String,
     val description: String,
     val group: String,
