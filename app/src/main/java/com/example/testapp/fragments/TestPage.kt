@@ -2,6 +2,7 @@ package com.example.testapp.fragments
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -165,8 +166,9 @@ class TestPage : Fragment() {
                                 val inQuestions = question.incorrect_answers ?: emptyList<String>()
                                 questionsEntities.add(
                                     QuestionEntity(
-                                        id = questionId,
-                                        question = question.question,
+                                        id =  questionId,
+                                        question = Html.fromHtml(question.question, Html.FROM_HTML_MODE_LEGACY)
+                                            .toString(),
                                         correct_answer = question.correct_answer,
                                         incorrect_answers = inQuestions
                                     )
