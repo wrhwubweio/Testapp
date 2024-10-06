@@ -1,10 +1,10 @@
 package com.example.testapp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -12,13 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testapp.R
 import com.example.testapp.adapters.CategoryAdapter
 import com.example.testapp.adapters.OnClickCategoryListener
-import com.example.testapp.data.question.Categories
 import com.example.testapp.data.question.CategoriesResponse
 import com.example.testapp.data.question.MainApi
 import com.example.testapp.data.question.MyTestesDB
 import com.example.testapp.data.question.Question
 import com.example.testapp.data.question.TestDao
-import com.example.testapp.data.question.TestDatabase
 import com.example.testapp.data.question.TestEntity
 import com.example.testapp.databinding.FragmentSearchHintsBinding
 import kotlinx.coroutines.Dispatchers
@@ -74,7 +72,9 @@ class SearchHints : Fragment() {
 
                         val listener = object : OnClickCategoryListener {
                             override fun onAddClick(pos: Int) {
-                                val category = categories?.get(pos)
+                                val category = categories?.get(pos- 9)
+                                //Toast.makeText(context, "test " + pos, 1).show()
+
                                 var testEntity: TestEntity? = null
                                 lifecycleScope.launch(Dispatchers.IO) {
                                     val index = testDao.getAllTestes().size
@@ -89,6 +89,7 @@ class SearchHints : Fragment() {
                                             0,
                                             listOf<Question>())
                                     }
+                                    category?.name?.let { Log.i("Category", it) }
                                     testEntity?.let { testDao.insertTest(it) }
                                 }
                             }
