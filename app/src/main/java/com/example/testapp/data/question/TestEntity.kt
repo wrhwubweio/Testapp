@@ -10,7 +10,7 @@ import androidx.room.TypeConverters
 data class TestEntity(
     @PrimaryKey val id: Int,
     val categoryId: Int,
-    val percentage: Double,
+    var percentage: Double,
     val name: String,
     val description: String,
     val group: String,

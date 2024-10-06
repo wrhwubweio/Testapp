@@ -30,6 +30,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.random.Random
 
 class TestPage : Fragment() {
     private lateinit var binding: TestPageBinding;
@@ -37,8 +38,9 @@ class TestPage : Fragment() {
     private val questionDao: QuestionDao by lazy { context?.let { QuestionDatabase.getInstance(it).questionDao() }!! }
     private var index: Int = 0
     private var answers: MutableList<Int> = mutableListOf()
-    private val max: Int = 9
-    private var category = 23
+    private var correct: MutableList<Boolean> = mutableListOf()
+    private var max: Int = 9
+    private lateinit var saveQuestion: QuestionEntity
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,24 +49,23 @@ class TestPage : Fragment() {
         binding = TestPageBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(TestViewModel::class.java)
 
-        //binding.nameTest.text = "Тест №" + (getArguments()?.getLong("id_test")?.plus(1)).toString()
+
         binding.endTest.setOnClickListener{
            viewModel.onButtonEnd()
         }
 
         viewModel.navigateToMainPageFragment.observe(viewLifecycleOwner, Observer { navigate ->
             if (navigate){
-                findNavController().navigate(R.id.result)
+                val bundle = Bundle().apply {
+                    putBooleanArray("result", correct.toBooleanArray())
+                }
+                findNavController().navigate(R.id.result, bundle)
                 viewModel.onMainPageNavigated()
             }
         })
 
         if(checkInternetPermission()) {
             loadDataQuestions()
-        }
-
-        for (i in 0..max) {
-            answers.add(-1)
         }
 
 
@@ -131,6 +132,15 @@ class TestPage : Fragment() {
             2 ->  binding.a3Text.setBackgroundResource(R.drawable.ans_back_choose)
             3 ->  binding.a4Text.setBackgroundResource(R.drawable.ans_back_choose)
         }
+
+        if(id == saveQuestion.incorrect_answers.indexOf(saveQuestion.correct_answer)){
+            correct[index] = true
+        }
+        else{
+            correct[index] = false
+        }
+
+
         answers[index] = id
     }
 
@@ -164,21 +174,31 @@ class TestPage : Fragment() {
                             val questionsEntities = mutableListOf<QuestionEntity>()
                             for (question in questionList) {
                                 val inQuestions = question.incorrect_answers ?: emptyList<String>()
+                                val allAnswers = mutableListOf(question.correct_answer).apply {
+                                    addAll(inQuestions)
+                                }
+                                allAnswers.shuffle(Random)
                                 questionsEntities.add(
                                     QuestionEntity(
                                         id =  questionId,
                                         question = Html.fromHtml(question.question, Html.FROM_HTML_MODE_LEGACY)
                                             .toString(),
                                         correct_answer = question.correct_answer,
-                                        incorrect_answers = inQuestions
+                                        incorrect_answers = allAnswers
                                     )
                                 )
                                 questionId++
                             }
+                            max = questionId - 1
+                            for (i in 0..max) {
+                                answers.add(-1)
+                                correct.add(false)
+                            }
                             saveDataToDatabase(questionsEntities)
+                            setIndex()
+                            setQuestion(index)
                         }
                     }
-                    setQuestion(index)
                 }
 
                 override fun onFailure(call: Call<QuestionResponse>, t: Throwable) {
@@ -200,12 +220,14 @@ class TestPage : Fragment() {
 
     private fun setQuestion(id: Int){
         GlobalScope.launch(Dispatchers.IO) {
-            val question = questionDao.getQuestionById(id)
-            binding.question.text = question.question
-            binding.a1Text.text = question.correct_answer
-            binding.a2Text.text = question.incorrect_answers[0]
-            binding.a3Text.text = question.incorrect_answers[1]
-            binding.a4Text.text = question.incorrect_answers[2]
+            saveQuestion = questionDao.getQuestionById(id)
+            binding.question.text = saveQuestion.question
+
+            outInfo(saveQuestion.correct_answer.toString(), false)
+            binding.a1Text.text = saveQuestion.incorrect_answers[0]
+            binding.a2Text.text = saveQuestion.incorrect_answers[1]
+            binding.a3Text.text = saveQuestion.incorrect_answers[2]
+            binding.a4Text.text = saveQuestion.incorrect_answers[3]
         }
     }
 

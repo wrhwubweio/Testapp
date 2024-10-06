@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface TestDao {
@@ -14,6 +15,9 @@ interface TestDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTestes(questions: List<TestEntity>): List<Long>
+
+    @Update
+    suspend fun updateTest(test: TestEntity)
 
     @Query("SELECT * FROM testes")
     public suspend fun getTestes(): List<TestEntity>

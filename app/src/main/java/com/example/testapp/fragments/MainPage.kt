@@ -11,13 +11,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.testapp.R
-import com.example.testapp.activities.CreateActivity
 import com.example.testapp.activities.TestActivity
 import com.example.testapp.adapters.ListViewAdapter
-import com.example.testapp.adapters.OnTestCreateClickListener
-import com.example.testapp.adapters.TestListAdapter
 import com.example.testapp.data.question.Item
 import com.example.testapp.data.question.MyTestesDB
 import com.example.testapp.data.question.TestDao
@@ -27,7 +23,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.Random
 
 class MainPage : Fragment() {
     private lateinit var binding: FragmentMainPageBinding;
@@ -35,6 +30,7 @@ class MainPage : Fragment() {
     private val testDao: TestDao by lazy { context?.let { MyTestesDB.getInstance(it).testDao() }!! }
     private var adapter: ListViewAdapter? = null
     public var category = 23
+    public var idTest = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,8 +53,8 @@ class MainPage : Fragment() {
                 val index = viewModel.numTest.value
                 if (index != null) {
                     category = adapter?.getItem(index.toInt())?.getCategory() ?: -1
+                    idTest = index.toInt()
                 }
-                result.putInt("id_test", category)
                 val intent = Intent(requireActivity(), TestActivity::class.java)
                 startActivity(intent, result)
                 viewModel.onTestNavigated()
@@ -89,19 +85,16 @@ class MainPage : Fragment() {
 
                 for (i in 0 .. dataTestes.size - 1) {
                     var pic = R.drawable.test
-                    val rand = Random().nextInt(3)
-                    var precent = "-%"
+                    var precent = dataTestes[i].percentage.toString() + "%"
 
-                    when (rand) {
-                        0 -> pic = R.drawable.test
-                        1 -> pic = R.drawable.test_done
-                        2 -> pic = R.drawable.test_fail
+                    when {
+                        dataTestes[i].percentage < 0 -> pic = R.drawable.test
+                        dataTestes[i].percentage < 50 -> pic = R.drawable.test_fail
+                        dataTestes[i].percentage <= 100 -> pic = R.drawable.test_done
                     }
 
-                    when (rand) {
-                        0 -> precent = "-%"
-                        1 -> precent = (50 + Random().nextInt(50)).toString() + "%"
-                        2 -> precent = Random().nextInt(50).toString() + "%"
+                    if(dataTestes[i].percentage < 0){
+                        precent = "-%"
                     }
 
                     items.add(Item(pic, dataTestes[i].name, precent, dataTestes[i].categoryId))
