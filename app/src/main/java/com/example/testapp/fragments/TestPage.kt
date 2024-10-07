@@ -2,6 +2,7 @@ package com.example.testapp.fragments
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
@@ -41,6 +42,7 @@ class TestPage : Fragment() {
     private var correct: MutableList<Boolean> = mutableListOf()
     private var max: Int = 9
     private lateinit var saveQuestion: QuestionEntity
+    private var countDownTimer: CountDownTimer? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -108,9 +110,26 @@ class TestPage : Fragment() {
             selectAnswer(3)
         }
 
+        startTimer(120000)
+
         return binding.root
     }
 
+    private fun startTimer(duration: Long) {
+        countDownTimer?.cancel() // Отменяем предыдущий таймер, если он существует
+
+        countDownTimer = object : CountDownTimer(duration, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val minutesRemaining = (millisUntilFinished / 1000) / 60
+                val secondsRemaining = (millisUntilFinished / 1000) % 60
+                binding.timer.text = String.format("%02d:%02d", minutesRemaining, secondsRemaining)
+            }
+
+            override fun onFinish() {
+                viewModel.onButtonEnd()
+            }
+        }.start()
+    }
     private fun setIndex(){
         binding.index.text = (index+1).toString() + "/" + (max+1).toString()
     }
@@ -240,6 +259,8 @@ class TestPage : Fragment() {
             false
         }
     }
+
+
 
     private fun outInfo(text: String, outToast: Boolean) {
         Log.d("MINE", text)
